@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        width: 100%;
+      }
+      form {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .header {
+        text-align: center;
+        color: black;
+      }
+      .title {
+        color: grey;
+        text-align: center;
+      }
+      .intro {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 18px;
+        color: red;
+      }
+
+      input[type="submit"] {
+        background-color: #3b3bb7;
+        width: 100%;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .highlight {
+        background-color: #3b3bb7;
+        color: white;
+        display: flex;
+      }
+
+      .main {
+        width: 60%;
+        text-align: center;
+      }
+
+      .sub {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .sub2 {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 85px;
+      }
+
+      .questions {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(128, 128, 128, 0.19);
+        align-items: center;
+        width: 100%;
+      }
+
+      .qmain {
+        text-align: center;
+        width: 60%;
+      }
+
+      .qsub {
+        display: flex;
+        width: 40%;
+        text-align: center;
+        gap: 90px;
+      }
+
+      .qsub input {
+        margin-left: 10px;
+      }
+
+      .bhead {
+        background-color: rgba(0, 242, 255, 0.775);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 class="header">Student Satisfaction Survey</h2>
+      <h3 class="title">HALDIA INSTITUTE OF TECHNOLOGY</h3>
+      <h4 class="intro">Hello {{ name }} from {{ semester }}</h4>
+    </header>
+
+    <div class="highlight">
+      <p class="main">Facilities</p>
+      <div class="sub">
+        <p>Excellent</p>
+        <p>Good</p>
+        <p>Average</p>
+        <p>Poor</p>
+      </div>
+    </div>
+
+    <form action="{{ url_for('submit_student_satisfaction') }}" method="POST">
+      <div class="questions">
+        <p class="qmain">1. Do you find the curriculum is well designed?</p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q1" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q1" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q1" value="Average" required
+          /></label>
+          <label><input type="radio" name="q1" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <div class="questions bhead">
+        <p class="qmain">2. Percentage of use of ICT based teaching?</p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q2" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q2" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q2" value="Average" required
+          /></label>
+          <label><input type="radio" name="q2" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <div class="questions">
+        <p class="qmain">
+          3. Does the courses conceptually difficult to understand?
+        </p>
+
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q3" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q3" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q3" value="Average" required
+          /></label>
+          <label><input type="radio" name="q3" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">4. Does the curriculum have focus on employability?</p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q4" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q4" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q4" value="Average" required
+          /></label>
+          <label><input type="radio" name="q4" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          5. Do you think that the syllabus is adequate for GATE?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q5" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q5" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q5" value="Average" required
+          /></label>
+          <label><input type="radio" name="q5" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          6. Do the notices are displayed /communicated in right time?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q6" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q6" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q6" value="Average" required
+          /></label>
+          <label><input type="radio" name="q6" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          7. Do you think that the tutorial classes are adequate?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q7" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q7" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q7" value="Average" required
+          /></label>
+          <label><input type="radio" name="q7" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          8. Do you think that the tutorial classes are adequate?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q8" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q8" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q8" value="Average" required
+          /></label>
+          <label><input type="radio" name="q8" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          9. Are you satisfied with the examination related procedures and
+          timely publications of results?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q9" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q9" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q9" value="Average" required
+          /></label>
+          <label><input type="radio" name="q9" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          10. Are you satisfied with the library (central/departmental)
+          facilities ?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q10" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q10" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q10" value="Average" required
+          /></label>
+          <label><input type="radio" name="q10" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          11. Are you satisfied with the official work related to students'
+          centric documentation ?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q11" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q11" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q11" value="Average" required
+          /></label>
+          <label><input type="radio" name="q11" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <div class="questions bhead">
+        <p class="qmain">
+          12. Do you think that there is adequate provision for pursuing
+          co-curricular and extra-curricular activities?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q12" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q12" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q12" value="Average" required
+          /></label>
+          <label><input type="radio" name="q12" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <div class="questions">
+        <p class="qmain">
+          13. Are you satisfied with the adequacy to games,sports,gym facilities
+          ?
+        </p>
+
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q13" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q13" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q13" value="Average" required
+          /></label>
+          <label><input type="radio" name="q13" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          14. Are you satisfied with the Industrial
+          training/internships/placement related preparatory measures ?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q14" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q14" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q14" value="Average" required
+          /></label>
+          <label><input type="radio" name="q14" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          15. Are you satisfied with the training and placement activities?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q15" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q15" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q15" value="Average" required
+          /></label>
+          <label><input type="radio" name="q15" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          16. Are you satisfied with the campus life and facilities?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q16" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q16" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q16" value="Average" required
+          /></label>
+          <label><input type="radio" name="q16" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          17. Are you satisfied with the adequacy to
+          games,sports,gym facilities ?
+        </p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q17" value="Excellent" required
+          /></label>
+          <label><input type="radio" name="q17" value="Good" required /></label>
+          <label
+            ><input type="radio" name="q17" value="Average" required
+          /></label>
+          <label><input type="radio" name="q17" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <input type="submit" value="Save and Finish" />
+    </form>
+  </body>
+</html>

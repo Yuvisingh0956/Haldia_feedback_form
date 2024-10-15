@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        width: 300px;
+        margin: 0 auto;
+      }
+      input,
+      select {
+        width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter Your Details</h2>
+    <form action="{{ url_for('submit_details') }}" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="roll_number">Roll Number:</label>
+      <input type="text" id="roll_number" name="roll_number" required />
+
+      <label for="semester">Select Semester:</label>
+      <select id="semester" name="semester" required>
+        <option value="sem4">Semester 4</option>
+        <option value="sem6">Semester 6</option>
+        <option value="sem8">Semester 8</option>
+      </select>
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

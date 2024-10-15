@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        width: 100%;
+      }
+      form {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .header {
+        text-align: center;
+        color: black;
+      }
+      .title {
+        color: grey;
+        text-align: center;
+      }
+      .intro {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 18px;
+        color: red;
+      }
+
+      input[type="submit"] {
+        background-color: #3b3bb7;
+        width: 100%;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .highlight {
+        background-color: #3b3bb7;
+        color: white;
+        display: flex;
+      }
+
+      .main {
+        width: 60%;
+        text-align: center;
+      }
+
+      .sub {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .sub2 {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 85px;
+      }
+
+      .questions {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(128, 128, 128, 0.19);
+        align-items: center;
+        width: 100%;
+      }
+
+      .qmain {
+        text-align: center;
+        width: 60%;
+      }
+
+      .qsub {
+        display: flex;
+        width: 40%;
+        text-align: center;
+        gap: 90px;
+      }
+
+      .qsub input {
+        margin-left: 10px;
+      }
+
+      .bhead {
+        background-color: rgba(0, 242, 255, 0.775);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 class="header">Syllabus Feedback</h2>
+      <h3 class="title">HALDIA INSTITUTE OF TECHNOLOGY</h3>
+      <h4 class="intro">Hello {{ name }} from {{ semester }}</h4>
+    </header>
+
+    <div class="highlight">
+      <p class="main">Facilities</p>
+      <div class="sub">
+        <p>Challenging</p>
+        <p>Dull</p>
+        <p>Adequate</p>
+        <p>Inadequate</p>
+      </div>
+    </div>
+
+    <form action="{{ url_for('submit_feedback') }}" method="POST">
+      <div class="questions">
+        <p class="qmain">1. Does the curriculum well designed?</p>
+        <div class="qsub">
+          <label
+            ><input type="radio" name="q1" value="Challenging" required
+          /></label>
+          <label><input type="radio" name="q1" value="Dull" required /></label>
+          <label
+            ><input type="radio" name="q1" value="Adequate" required
+          /></label>
+          <label
+            ><input type="radio" name="q1" value="Inadequate" required
+          /></label>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <p class="main">Facilities</p>
+        <div class="sub">
+          <p>Easy</p>
+          <p>Manageable</p>
+          <p>Difficult</p>
+          <p>Very Difficult</p>
+        </div>
+      </div>
+
+      <div class="questions">
+        <p class="qmain">
+          2. Was the course conceptually difficult to understand?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q2" value="Easy" required /></label>
+          <label
+            ><input type="radio" name="q2" value="Manageable" required
+          /></label>
+          <label
+            ><input type="radio" name="q2" value="Difficult" required
+          /></label>
+          <label
+            ><input type="radio" name="q2" value="Very Difficult" required
+          /></label>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <p class="main">Facilities</p>
+        <div class="sub2">
+          <p>Yes</p>
+          <p>Maybe</p>
+          <p>No</p>
+          <p>Poor</p>
+        </div>
+      </div>
+
+      <div class="questions">
+        <p class="qmain">
+          3. Does the curriculum has enough content for a student to acquire
+          sufficient knowledge to secure a subject related job?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q3" value="Yes" required /></label>
+          <label><input type="radio" name="q3" value="Maybe" required /></label>
+          <label><input type="radio" name="q3" value="No" required /></label>
+          <label><input type="radio" name="q3" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">4. Did the curriculum promote learning outcome?</p>
+        <div class="qsub">
+          <label><input type="radio" name="q4" value="Yes" required /></label>
+          <label><input type="radio" name="q4" value="Maybe" required /></label>
+          <label><input type="radio" name="q4" value="No" required /></label>
+          <label><input type="radio" name="q4" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          5. Did the course curriculum intellectually stimulate ?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q5" value="Yes" required /></label>
+          <label><input type="radio" name="q5" value="Maybe" required /></label>
+          <label><input type="radio" name="q5" value="No" required /></label>
+          <label><input type="radio" name="q5" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          6. Does the curriculum design has focus on employability?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q6" value="Yes" required /></label>
+          <label><input type="radio" name="q6" value="Maybe" required /></label>
+          <label><input type="radio" name="q6" value="No" required /></label>
+          <label><input type="radio" name="q6" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          7. Do you the think that the syllabus is adequate for GATE ?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q7" value="Yes" required /></label>
+          <label><input type="radio" name="q7" value="Maybe" required /></label>
+          <label><input type="radio" name="q7" value="No" required /></label>
+          <label><input type="radio" name="q7" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          8. Did the syllabus provides foundation for pursuing Higher
+          Studies/Research ?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q8" value="Yes" required /></label>
+          <label><input type="radio" name="q8" value="Maybe" required /></label>
+          <label><input type="radio" name="q8" value="No" required /></label>
+          <label><input type="radio" name="q8" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions">
+        <p class="qmain">
+          9. Did the subject/courses help in developing your personality?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q9" value="Yes" required /></label>
+          <label><input type="radio" name="q9" value="Maybe" required /></label>
+          <label><input type="radio" name="q9" value="No" required /></label>
+          <label><input type="radio" name="q9" value="Poor" required /></label>
+        </div>
+      </div>
+      <div class="questions bhead">
+        <p class="qmain">
+          10.Does the syllabus has enough innovativeness and opportunities for
+          creative thinking?
+        </p>
+        <div class="qsub">
+          <label><input type="radio" name="q10" value="Yes" required /></label>
+          <label
+            ><input type="radio" name="q10" value="Maybe" required
+          /></label>
+          <label><input type="radio" name="q10" value="No" required /></label>
+          <label><input type="radio" name="q10" value="Poor" required /></label>
+        </div>
+      </div>
+
+      <input type="submit" value="Save and Next" />
+    </form>
+  </body>
+</html>

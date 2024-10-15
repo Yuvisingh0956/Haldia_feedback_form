@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syllabus Feedback</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        width: 700px;
+        margin: 0 auto;
+      }
+      .header {
+        text-align: center;
+        background-color: blue;
+        color: white;
+        padding: 10px;
+      }
+      input,
+      select {
+        width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+      }
+      .question {
+        margin: 15px 0;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      td {
+        padding: 8px;
+        text-align: center;
+      }
+      .highlight {
+        background-color: #3b3bb7;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="header">Syllabus Feedback</h2>
+    <form action="{{ url_for('feedback') }}" method="POST">
+      <!-- Personal Details -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="roll_number">Roll Number:</label>
+      <input type="text" id="roll_number" name="roll_number" required />
+
+      <label for="semester">Select Semester:</label>
+      <select id="semester" name="semester" required>
+        <option value="sem4">Semester 4</option>
+        <option value="sem6">Semester 6</option>
+        <option value="sem8">Semester 8</option>
+      </select>
+
+      <!-- Feedback Questions -->
+      <table border="1">
+        <tr class="highlight">
+          <td>Facilities</td>
+          <td>Challenging</td>
+          <td>Dull</td>
+          <td>Adequate</td>
+          <td>Inadequate</td>
+        </tr>
+        <tr>
+          <td>1. Does the curriculum well designed?</td>
+          <td><input type="radio" name="q1" value="Challenging" /></td>
+          <td><input type="radio" name="q1" value="Dull" /></td>
+          <td><input type="radio" name="q1" value="Adequate" /></td>
+          <td><input type="radio" name="q1" value="Inadequate" /></td>
+        </tr>
+        <!-- Additional questions -->
+        <tr class="highlight">
+          <td>2. Was the course conceptually difficult to understand?</td>
+          <td><input type="radio" name="q2" value="Easy" /></td>
+          <td><input type="radio" name="q2" value="Manageable" /></td>
+          <td><input type="radio" name="q2" value="Difficult" /></td>
+          <td><input type="radio" name="q2" value="Very Difficult" /></td>
+        </tr>
+        <tr>
+          <td>
+            3. Does the curriculum have enough content for securing a job?
+          </td>
+          <td><input type="radio" name="q3" value="Yes" /></td>
+          <td><input type="radio" name="q3" value="Maybe" /></td>
+          <td><input type="radio" name="q3" value="No" /></td>
+          <td><input type="radio" name="q3" value="Poor" /></td>
+        </tr>
+        <!-- Repeat this pattern for all 10 questions -->
+      </table>
+
+      <input type="submit" value="Save and Next" />
+    </form>
+  </body>
+</html>
