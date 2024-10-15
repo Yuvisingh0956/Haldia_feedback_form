@@ -15,7 +15,46 @@ def init_excel_file():
         sheet = workbook.active
         sheet.title = 'StudentData'
         # Add header row
-        sheet.append(['Name', 'Roll Number', 'Semester', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10','Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10','Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10','Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17'])
+        sheet.append(['Name', 'Roll Number', 'Semester', 
+                      '1. Does the curriculum well designed?', 
+                      '2. Was the course conceptually difficult to understand?', 
+                      '3. Does the curriculum has enough content for a student to acquire sufficient knowledge to secure a subject related job?', 
+                      '4. Did the curriculum promote learning outcome?', 
+                      '5. Did the course curriculum intellectually stimulate ?', 
+                      '6. Does the curriculum design has focus on employability?', 
+                      '7. Do you the think that the syllabus is adequate for GATE ?', 
+                      '8. Did the syllabus provides foundation for pursuing Higher Studies/Research ?', 
+                      '9. Did the subject/courses help in developing your personality?', 
+                      '10.Does the syllabus has enough innovativeness and opportunities for creative thinking?',
+
+                      '1.The faculty explained the objective of the course. Its relevance in regard to Industrial application, current development and research opportunities.', 
+                      '2. The prerequisites, pertinence of the course with others and programme as a whole and the organization of the subject matter are explained.', 
+                      "3. The teacher explained CO statements and its correlations with the PO's and PSO's", 
+                      '4. The teacher is enthusiastic and created interest in the subject', 
+                      '5. The teacher delivered the lecture lucidly', 
+                      '6.The teacher emphasized on numerical problem solving / mathematical formulation etc, example and data analysis.', 
+                      '7. Teacher used modern and smart teaching aids, whenever relevant.', 
+                      '8. Test, Assignment and quizzes were adequate.', 
+                      '9. The teacher provides opportunities for participatory learning.', 
+                      '10. Your level of satisfaction with the all round contribution of the teacher',
+                      
+                      '1. Do you find the curriculum is well designed?', 
+                      '2. Percentage of use of ICT based teaching?', 
+                      '3. Does the courses conceptually difficult to understand?', 
+                      '4. Does the curriculum have focus on employability?', 
+                      '5. Do you think that the syllabus is adequate for GATE?', 
+                      '6. Do the notices are displayed /communicated in right time?', 
+                      '7. Do you think that the tutorial classes are adequate?', 
+                      '8. Do you think that the tutorial classes are adequate?', 
+                      '9. Are you satisfied with the examination related procedures and timely publications of results?', 
+                      '10. Are you satisfied with the library (central/departmental) facilities ?',
+                      '11. Are you satisfied with the official work related to students centric documentation ?', 
+                      '12. Do you think that there is adequate provision for pursuing co-curricular and extra-curricular activities?', 
+                      '13. Are you satisfied with the adequacy to games,sports,gym facilities ?', 
+                      '14. Are you satisfied with the Industrial training/internships/placement related preparatory measures ?', 
+                      '15. Are you satisfied with the training and placement activities?', 
+                      '16. Are you satisfied with the campus life and facilities?', 
+                      '17. Are you satisfied with the adequacy to games,sports,gym facilities ?'])
         workbook.save(EXCEL_FILE)
 
 # Append student details to Excel file
@@ -32,7 +71,7 @@ def save_student_details(name, roll_number, semester):
     sheet.append([name, roll_number, semester] + [''] * 10)
     workbook.save(EXCEL_FILE)
 
-# Update feedback in Excel file
+# Update student feedback in Excel file
 def update_feedback(roll_number, feedback):
     workbook = openpyxl.load_workbook(EXCEL_FILE)
     sheet = workbook['StudentData']
